@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/shopping_cart/static/css/main.a533a48c.css",
+    "main.js": "/shopping_cart/static/js/main.28d2d451.js",
+    "static/js/453.116f6eb2.chunk.js": "/shopping_cart/static/js/453.116f6eb2.chunk.js",
+    "static/media/Affogato.jpg": "/shopping_cart/static/media/Affogato.a3362a648ef86b2c92cb.jpg",
+    "static/media/Vanilla Bean Latte.jpg": "/shopping_cart/static/media/Vanilla Bean Latte.351d573772197a3e3608.jpg",
+    "static/media/logo.png": "/shopping_cart/static/media/logo.f154aac3cc45847c287d.png",
+    "static/media/Chocolate Cream Chip Frappuccino.jpg": "/shopping_cart/static/media/Chocolate Cream Chip Frappuccino.1e43cc6cab464d854fab.jpg",
+    "static/media/Grapefruit Honey Black Tea.jpg": "/shopping_cart/static/media/Grapefruit Honey Black Tea.8e8d50a1a608c67c2db1.jpg",
+    "static/media/Bergamot Cold Brew.jpg": "/shopping_cart/static/media/Bergamot Cold Brew.aa68a35e78b907632283.jpg",
+    "static/media/Sea Salt Caramel Cold Brew.jpg": "/shopping_cart/static/media/Sea Salt Caramel Cold Brew.58d37241a73731877437.jpg",
+    "static/media/Jeju Malcha Yogurt Blended.jpg": "/shopping_cart/static/media/Jeju Malcha Yogurt Blended.6774d44c32d1c4aacf8f.jpg",
+    "static/media/Cafe Americano.jpg": "/shopping_cart/static/media/Cafe Americano.84aedaa308ea1f3f11eb.jpg",
+    "index.html": "/shopping_cart/index.html",
+    "main.a533a48c.css.map": "/shopping_cart/static/css/main.a533a48c.css.map",
+    "main.28d2d451.js.map": "/shopping_cart/static/js/main.28d2d451.js.map",
+    "453.116f6eb2.chunk.js.map": "/shopping_cart/static/js/453.116f6eb2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a533a48c.css",
+    "static/js/main.28d2d451.js"
+  ]
+}
