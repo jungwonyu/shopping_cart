@@ -9,8 +9,26 @@ export function CartProvider({ children }) {
     setCartItems((prev) => [...prev, item]);
   };
 
+  const initialCart = () => {
+    setCartItems([]);
+  };
+
+  const increaseCount = (id) => {
+    const targetItem = cartItems.find((item) => item.id === id);
+    cartItems.push(targetItem);
+    setCartItems([...cartItems]);
+  };
+
+  const decreaseCount = (id) => {
+    const targetItemIndex = cartItems.findIndex((item) => item.id === id);
+    if (targetItemIndex !== -1) {
+      cartItems.splice(targetItemIndex, 1);
+      setCartItems([...cartItems]);
+    }
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, initialCart, increaseCount, decreaseCount }}>
       {children}
     </CartContext.Provider>
   );

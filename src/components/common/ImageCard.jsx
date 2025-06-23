@@ -8,7 +8,7 @@ export default function ImageCard({ src, alt, name, price }) {
       <Img src={src} alt={alt} $borderRadius="20px" $width="130px" />
       <VStack $justifyContent="space-around">
         <Typography kind="subTitle">{name}</Typography>
-        <Typography kind="desc" $fontWeight="bold">{price}원</Typography>
+        <Typography kind="price" $fontWeight="bold">{price}원</Typography>
       </VStack>
     </VStack>
   )

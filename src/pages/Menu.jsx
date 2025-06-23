@@ -4,7 +4,7 @@ import MenuList from './MenuList';
 
 export default function Menu() {
   return (
-    <VStack $padding="10px 20px" $overflowY="scroll" $height="100%" $gap="30px">
+    <VStack $padding="10px 20px" $overflowY="auto" $height="780px" $gap="20px">
       <PopularList />
       <MenuList />
     </VStack>

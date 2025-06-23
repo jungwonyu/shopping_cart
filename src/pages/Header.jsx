@@ -1,9 +1,9 @@
 import HStack from '../shared/HStack';
 import VStack from '../shared/VStack';
-import Typography from '../shared/Typography';
 import Img from '../shared/Img';
-import LogoImg from '../assets/icon/logo.png';
+import Typography from '../shared/Typography';
 import CartButton from '../components/common/CartButton';
+import LogoImg from '../assets/icon/logo.png';
 
 export default function Header({ setShowCart }) {
   return (

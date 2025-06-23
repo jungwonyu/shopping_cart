@@ -5,11 +5,12 @@ const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: none;
-  background-color: var(--color-goldenrod);
+  background-color: var(--color-accent-green);
+  color: var(--color-white);
   cursor: pointer;
 
   &:hover {
@@ -17,10 +18,10 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function AddButton({ onClick }) {
+export default function CountButton({ onClick, kind }) {
   return (
     <StyledButton onClick={onClick}>
-      <Typography $fontSize="14px" $fontWeight="bold" $color="var(--color-white)">+</Typography>
+      <Typography $fontSize="14px" $fontWeight="bold" $color="var(--color-white)">{kind === 'plus' ? '+' : '-'}</Typography>
     </StyledButton>
   );
 }

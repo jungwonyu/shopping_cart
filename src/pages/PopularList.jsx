@@ -12,10 +12,10 @@ import 'swiper/css';
 
 export default function PopularList() {
   const bestSeller = [
-    { src: ImgMenu1, alt: '허니 자몽 블랙티', name: '허니 자몽 블랙티', price: '5,900' },
-    { src: ImgMenu2, alt: '씨솔트 카라멜 콜드 브루', name: '씨솔트 카라멜 콜드 브루', price: '6,000' },
-    { src: ImgMenu3, alt: '카페 아메리카노', name: '카페 아메리카노', price: '4,700' },
-    { src: ImgMenu4, alt: '클래식 아포가토', name: '클래식 아포가토', price: '5,300' },
+    { id: 1, src: ImgMenu1, name: '허니 자몽 블랙티', price: 5900 },
+    { id: 2, src: ImgMenu2, name: '씨솔트 카라멜 콜드 브루', price: 6000 },
+    { id: 3, src: ImgMenu3, name: '카페 아메리카노', price: 4700 },
+    { id: 4, src: ImgMenu4, name: '클래식 아포가토', price: 5300 },
   ];
 
   return (
@@ -23,9 +23,9 @@ export default function PopularList() {
       <Typography kind="title">Most Popular</Typography>
       <HStack>
         <Swiper spaceBetween={20} slidesPerView={2}>
-          {bestSeller.map((item, index) => (
-            <SwiperSlide key={index}>
-              <ImageCard src={item.src} alt={item.alt} name={item.name} price={item.price} />
+          {bestSeller.map((item) => (
+            <SwiperSlide key={item.id}>
+              <ImageCard src={item.src} alt={item.name} name={item.name} price={item.price.toLocaleString()} />
             </SwiperSlide>
           ))}
         </Swiper>

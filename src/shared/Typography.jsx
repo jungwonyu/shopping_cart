@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const Typography = styled.span`
+  line-height: ${(props) => props.$lineHeight || '1.5'};
+  text-align: ${textAlign => textAlign || 'left'};
   font-size: ${(props) => {
     switch (props.kind) {
       case 'title':
@@ -20,8 +22,6 @@ const Typography = styled.span`
         return props.$fontWeight || 'normal';
     }
   }};
-  line-height: ${(props) => props.$lineHeight || '1.5'};
-  text-align: left;
   color: ${(props) => {
     switch (props.kind) {
       case 'title':
@@ -29,6 +29,8 @@ const Typography = styled.span`
         return 'var(--color-starbucks-green)';
       case 'desc':
         return 'var(--color-dark-gray)';
+      case 'price':
+        return 'var(--color-goldenrod)';
       default:
         return props.$color || 'black';
     }
