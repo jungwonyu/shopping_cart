@@ -10,7 +10,7 @@ export default function Main() {
 
   return (
     <CartProvider>
-      <Card $width="400px" $height="900px">
+      <Card $width="100vw" $maxWidth="400px" $height="100vh" $maxHeight="900px" $margin="0 auto" $padding="0">
         <Header showCart={showCart} setShowCart={setShowCart} />
         {showCart ? (
           <Cart setShowCart={setShowCart}/>
