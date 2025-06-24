@@ -1,31 +1,44 @@
-import { createContext, useState } from 'react';
+import { createContext, useReducer } from 'react';
 
 export const CartContext = createContext();
 
-export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+const initialState = [];
 
-  const initToCart = () => setCartItems([]); // 장바구니 초기화
-
-  const addToCart = (item) => { // cartItems에 아이템을 추가 
-    setCartItems((prev) => {
-      const found = prev.find((prevItem) => prevItem.id === item.id); // 이미 장바구니에 있는 아이템인지 확인
-      if (found) { 
-        return prev.map((prevItem) => prevItem.id === item.id ? { ...prevItem, count: prevItem.count + 1 } : prevItem); // 이미 있는 아이템이면 카운트만 증가
+function cartReducer(state, action) {
+  switch (action.type) {
+    case 'INIT':
+      return [];
+    case 'ADD': {
+      const found = state.find((item) => item.id === action.item.id);
+      if (found) {
+        return state.map((item) => item.id === action.item.id   ? { ...item, count: item.count + 1 } : item);
       }
-      return [...prev, { ...item, count: 1 }]; // 새로운 아이템이면 카운트 1로 추가
-    });
-  };
+      return [...state, { ...action.item, count: 1 }];
+    }
+    case 'INCREASE':
+      return state.map((item) => item.id === action.id ? { ...item, count: item.count + 1 } : item);
+    case 'DECREASE':
+      return state
+        .map((item) =>
+          item.id === action.id ? { ...item, count: item.count - 1 } : item
+        )
+        .filter((item) => item.count > 0);
+    default:
+      return state;
+  }
+}
 
-  const increaseCount = (id) => { // 아이템의 카운트를 증가
-    setCartItems((prev) => prev.map((item) => item.id === id ? { ...item, count: item.count + 1 } : item));
-  };
+export function CartProvider({ children }) {
+  const [cartItems, dispatch] = useReducer(cartReducer, initialState);
 
-  const decreaseCount = (id) => { // 아이템의 카운트를 감소
-    setCartItems((prev) => prev.map((item) => item.id === id ? { ...item, count: item.count - 1 } : item).filter((item) => item.count > 0));
-  };
+  const initToCart = () => dispatch({ type: 'INIT' });
+  const addToCart = (item) => dispatch({ type: 'ADD', item });
+  const increaseCount = (id) => dispatch({ type: 'INCREASE', id });
+  const decreaseCount = (id) => dispatch({ type: 'DECREASE', id });
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, initToCart, increaseCount, decreaseCount }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ cartItems, addToCart, initToCart, increaseCount, decreaseCount }}>
+      {children}
+    </CartContext.Provider>
   );
 }
