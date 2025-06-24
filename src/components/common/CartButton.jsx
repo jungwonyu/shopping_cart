@@ -6,8 +6,9 @@ import Img from '../../shared/Img';
 import Button from '../../shared/Button';
 import CartIcon from '../../assets/icon/ico_cart.png';
 
-function CartButton({ setShowCart }) {
+export default function CartButton({ setShowCart }) {
   const { cartItems } = useContext(CartContext);
+  const cartItemsCount = cartItems.reduce((total, item) => total + item.count, 0); // cart에 있는 아이템 수 계산
 
   return (
     <VStack $width="20%" $alignItems="center" $justifyContent="center" $position="relative">
@@ -16,11 +17,9 @@ function CartButton({ setShowCart }) {
           <Img src={CartIcon} alt="logo" $width="30px" $height="30px" />
         </VStack>
         <VStack $width="30px" $height="30px" $justifyContent="center" $alignItems="center" $position="absolute" $top="10px" $right="0px" $backgroundColor="var(--color-goldenrod)" $borderRadius="50%">
-          <Typography $color="var(--color-white)" $fontWeight="bold">{cartItems.length}</Typography>
+          <Typography $color="var(--color-white)" $fontWeight="bold">{cartItemsCount}</Typography>
         </VStack>
       </Button>
     </VStack>
   );
 }
-
-export default CartButton;

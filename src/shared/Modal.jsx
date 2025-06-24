@@ -26,9 +26,7 @@ const StyledModal = styled.div`
 export default function Modal({ ...props }) {
   return (
     <StyledModal>
-      <div {...props}>
-        {props.children}
-      </div>
-  </StyledModal>
+      <div {...props}>{props.children}</div>
+    </StyledModal>
   )
 }

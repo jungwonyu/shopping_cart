@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import Typography from '../../shared/Typography';
 
 const StyledButton = styled.button`
+  width: 26px;
+  height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 26px;
-  height: 26px;
   border-radius: 50%;
   border: none;
   background-color: var(--color-accent-green);
